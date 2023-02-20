@@ -11,7 +11,6 @@ start_time = input("시작 시간을 입력해주세요. : ") + ":"
 finish_time = input("끝난 시간을 입력해주세요. : ") + ":"
 set_zero_time = input("기준점(0초)을 입력해주세요. : ") + ":"
 
-
 # 전체 파일 리스트 불러오기
 file_list = natsort.natsorted(os.listdir(file_path))
 
@@ -50,7 +49,7 @@ for tmp_file in file_list:
             if set_zero_time in time_item:
                 set_zero_idx = idx
                 break
-        # new_rel_time_data = [i for i in range(-600, 10*len(new_time_data)-600, 10)]
+
         new_rel_time_data = [i for i in range(0, -10*len(new_time_data[0:set_zero_idx + 1]), -10)] + [i for i in range(10, 10*len(new_time_data[set_zero_idx:]), 10)]
         new_rel_time_data.sort()
         new_tmp_data = list(tmp_df.loc[start_idx:finish_idx, "Value"])
